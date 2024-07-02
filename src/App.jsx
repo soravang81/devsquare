@@ -16,9 +16,9 @@ export default function App() {
   return (
     <BrowserRouter>
     <Navbar/>
-    <Forum></Forum>
+    {/* <Forum></Forum>
     <HelpRequests></HelpRequests>
-    <ChatWithFriend></ChatWithFriend>
+    <ChatWithFriend></ChatWithFriend> */}
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
     </Routes>
