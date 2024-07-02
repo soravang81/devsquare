@@ -6,7 +6,7 @@ const forums = [
   { name: 'Product Development', description: 'Discuss product development and ideas.', link: '/product-development' }
 ];
 
-function Forum({ name, description, link }) {
+function Form({ name, description, link }) {
   return (
     <a href={link} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
@@ -21,7 +21,7 @@ function Forum({ name, description, link }) {
   );
 }
 
-function App() {
+export default function Forum() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
       <header className="w-full bg-blue-500 text-white py-6 text-center">
@@ -30,7 +30,7 @@ function App() {
       <main className="flex-grow w-full px-4 py-8 flex justify-center">
         <div className="flex flex-wrap justify-center">
           {forums.map((forum, index) => (
-            <Forum key={index} name={forum.name} description={forum.description} link={forum.link} />
+            <Form key={index} name={forum.name} description={forum.description} link={forum.link} />
           ))}
         </div>
       </main>
@@ -38,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+

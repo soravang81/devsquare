@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function HelpRequests() {
   const [requests, setRequests] = useState([]);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handlePostRequest = () => {
     if (title.trim() && description.trim()) {
       setRequests([...requests, { title, description, id: Date.now() }]);
-      setTitle('');
-      setDescription('');
+      setTitle("");
+      setDescription("");
     }
   };
 
@@ -38,7 +38,7 @@ export default function HelpRequests() {
             onChange={(e) => setDescription(e.target.value)}
             className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             placeholder="Describe what help you need"
-            rows="4"
+            // rows="4"
           />
           <button
             onClick={handlePostRequest}
