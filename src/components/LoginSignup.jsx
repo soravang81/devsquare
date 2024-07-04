@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
 
 export function Authentication() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
-  const [action, setAction] = useState('Sign Up');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [action, setAction] = useState("Sign Up");
+  const [selectedValue, setSelectedValue] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,10 +26,15 @@ export function Authentication() {
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
   const handleSignUp = () => {
     // Implement sign-up functionality here
-    console.log(`Signing up with Email: ${email}, Password: ${password}, Username: ${username}`);
+    console.log(
+      `Signing up with Email: ${email}, Password: ${password}, Username: ${username}`
+    );
   };
 
   const handleLogin = () => {
@@ -31,18 +45,49 @@ export function Authentication() {
   return (
     <div className="max-w-md mx-auto p-8 bg-white shadow-md rounded-lg mt-8">
       <h2 className="text-2xl font-bold text-center mb-4">{action}</h2>
-      {action === 'Sign Up' && (
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={handleUsernameChange}
-          className="w-full py-2 px-3 border border-gray-300 rounded-md mb-4"
-        />
+      {action === "Sign Up" && (
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={handleUsernameChange}
+            className="w-full py-2 px-3 border border-gray-300 rounded-md mb-4"
+          />
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={handleNameChange}
+            className="w-full py-2 px-3 border border-gray-300 rounded-md mb-4"
+          />
+          <Select onValueChange={setSelectedValue}>
+            <
+// @ts-ignore
+            SelectTrigger className={`w-full py-2 px-3 border border-gray-300 rounded-md mb-4 font-medium focus:outline-none focus:ring-1 ${
+            selectedValue ? 'text-black font-normal' : 'text-gray-400'
+            }`}>
+              <SelectValue placeholder="User Type" />
+            </SelectTrigger>
+            <
+// @ts-ignore
+            SelectContent>
+              <
+// @ts-ignore
+              SelectItem value="founder">Founder</SelectItem>
+              <
+// @ts-ignore
+              SelectItem value="investor">Investor</SelectItem>
+              <
+// @ts-ignore
+              SelectItem value="regular">Regular</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       )}
       <input
         type="email"
-        placeholder="Email"
+        placeholder={action === "Sign Up" ? "Email" : "Username or Email"}
         value={email}
         onChange={handleEmailChange}
         className="w-full py-2 px-3 border border-gray-300 rounded-md mb-4"
@@ -54,7 +99,7 @@ export function Authentication() {
         onChange={handlePasswordChange}
         className="w-full py-2 px-3 border border-gray-300 rounded-md mb-4"
       />
-      {action === 'Sign Up' ? (
+      {action === "Sign Up" ? (
         <button
           onClick={handleSignUp}
           className="w-full py-2 px-3 bg-blue-500 text-white rounded-md mb-2 hover:bg-blue-700"
@@ -70,10 +115,10 @@ export function Authentication() {
         </button>
       )}
       <button
-        onClick={() => setAction(action === 'Sign Up' ? 'Login' : 'Sign Up')}
+        onClick={() => setAction(action === "Sign Up" ? "Login" : "Sign Up")}
         className="w-full py-2 px-3 bg-gray-500 text-white rounded-md hover:bg-gray-700 mt-2"
       >
-        {action === 'Sign Up' ? 'Login' : 'Sign Up'}
+        {action === "Sign Up" ? "Login" : "Sign Up"}
       </button>
     </div>
   );
