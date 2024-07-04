@@ -38,10 +38,10 @@ function App() {
 
   return (
     <>
-      {!isAuthPage && <Navbar />}
+      {<Navbar />}
       <Routes>
-        <Route path='/login' element={<Authentication />} />
-        <Route element={<ProtectedRoute fallbackPath='/login' />}>
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route element={<ProtectedRoute fallbackPath='/dashboard' />}>
           <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} />
           <Route path='/dashboard' element={<Dashboard />} />
         </Route>
