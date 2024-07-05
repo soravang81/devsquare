@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+// import './App.css';
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
@@ -38,11 +38,11 @@ function App() {
 
   return (
     <>
-      {<Navbar />}
+      {!isAuthPage && <Navbar />}
       <Routes>
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route element={<ProtectedRoute fallbackPath='/dashboard' />}>
-          <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} />
+        <Route path='/login' element={<Authentication />} />
+        <Route element={<ProtectedRoute fallbackPath='/login' />}>
+          <Route path='/' element={isAuth ? <Navigate to='/login' /> : <Navigate to='/dashboard' />} />
           <Route path='/dashboard' element={<Dashboard />} />
         </Route>
       </Routes>
