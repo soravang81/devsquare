@@ -7,9 +7,6 @@
     text-align: center;
     max-width: 350px;
     display: inline-block;
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
     background-color: rgb(242, 242, 247);
 }
 
@@ -37,7 +34,6 @@
     padding-bottom: 10px;
 }
 
-
 .main-cards .cards-div {
     display: flex;
     align-items: center;
@@ -51,7 +47,8 @@
     padding: 7px;
     font-size: 30px;
     text-align: center;
-    color: #ebe7ef;
+    /* color: #ebe7ef; */
+    color: black;
 }
 
 .main-cards .card-button {
@@ -64,5 +61,5 @@
 }
 
 #outer-div{
-    background: radial-gradient(#280a48, #20043d);
+    /* background: radial-gradient(#280a48, #20043d); */
 }

@@ -63,6 +63,12 @@ export function Navbar() {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
+              <a
+                  href="/home"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Home
+                </a>
                 <a
                   href="/dashboard"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -70,22 +76,31 @@ export function Navbar() {
                   Dashboard
                 </a>
                 <a
-                  href="#"
+                  href="/forum"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Team
+                  Forum
                 </a>
                 <a
-                  href="#"
+                  href="/groups"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Projects
+                  Groups
                 </a>
-                <a
-                  href="#"
+                <a href="/search"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Calendar
+                  Search
+                </a>
+                <a href="/chat"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Chat
+                </a>
+                <a href="/help"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Help
                 </a>
               </div>
             </div>

@@ -11,6 +11,13 @@ import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 import ProtectedRoute from './components/ProtectedRoute';
 
+import HelpRequests from "./components/HelpRequest";
+import Forum from "./components/Forums";
+import Cards from "./components/Cards";
+import AdvancedSearch from "./components/SearchOptions";
+import ChatWithFriend from "./components/chatwithfriend";
+import HomeTab from "./components/Home/Home";
+
 const store = createStore({
   authName: '_auth',
   authType: 'cookie',
@@ -39,11 +46,18 @@ function App() {
   return (
     <>
       {<Navbar />}
+      {/* <HelpRequests /> */}
       <Routes>
+        <Route path='/home' element={<HomeTab />} />
+        <Route path='/help' element={<HelpRequests />} />
+        <Route path='/chat' element={<ChatWithFriend />} />
+        <Route path='/groups' element={<Cards />} />
+        <Route path='/forum' element={<Forum />} />
+        <Route path='/search' element={<AdvancedSearch />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route element={<ProtectedRoute fallbackPath='/dashboard' />}>
-          <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+        <Route element={<ProtectedRoute fallbackPath='/home' />}>
+          {/* <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} /> */}
+          <Route path='/' element={isAuth ? <Navigate to='/home' /> : <Navigate to='/login' />} />
         </Route>
       </Routes>
     </>
