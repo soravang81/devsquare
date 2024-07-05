@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+// import './App.css';
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
@@ -46,18 +46,11 @@ function App() {
   return (
     <>
       {<Navbar />}
-      {/* <HelpRequests /> */}
       <Routes>
-        <Route path='/home' element={<HomeTab />} />
-        <Route path='/help' element={<HelpRequests />} />
-        <Route path='/chat' element={<ChatWithFriend />} />
-        <Route path='/groups' element={<Cards />} />
-        <Route path='/forum' element={<Forum />} />
-        <Route path='/search' element={<AdvancedSearch />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route element={<ProtectedRoute fallbackPath='/home' />}>
-          {/* <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} /> */}
-          <Route path='/' element={isAuth ? <Navigate to='/home' /> : <Navigate to='/login' />} />
+        <Route element={<ProtectedRoute fallbackPath='/dashboard' />}>
+          <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Route>
       </Routes>
     </>
