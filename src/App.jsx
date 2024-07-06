@@ -1,5 +1,5 @@
 import React from "react";
-// import './App.css';
+import './App.css';
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
@@ -10,6 +10,13 @@ import AuthProvider from 'react-auth-kit';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 import ProtectedRoute from './components/ProtectedRoute';
+
+import HelpRequests from "./components/HelpRequest";
+import Forum from "./components/Forums";
+import Cards from "./components/Cards";
+import AdvancedSearch from "./components/SearchOptions";
+import ChatWithFriend from "./components/chatwithfriend";
+import HomeTab from "./components/Home/Home";
 
 const store = createStore({
   authName: '_auth',
@@ -38,12 +45,19 @@ function App() {
 
   return (
     <>
-      {!isAuthPage && <Navbar />}
+      {<Navbar />}
+      {/* <HelpRequests /> */}
       <Routes>
-        <Route path='/login' element={<Authentication />} />
-        <Route element={<ProtectedRoute fallbackPath='/login' />}>
-          <Route path='/' element={isAuth ? <Navigate to='/login' /> : <Navigate to='/dashboard' />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/home' element={<HomeTab />} />
+        <Route path='/help' element={<HelpRequests />} />
+        <Route path='/chat' element={<ChatWithFriend />} />
+        <Route path='/groups' element={<Cards />} />
+        <Route path='/forum' element={<Forum />} />
+        <Route path='/search' element={<AdvancedSearch />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route element={<ProtectedRoute fallbackPath='/home' />}>
+          {/* <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} /> */}
+          <Route path='/' element={isAuth ? <Navigate to='/home' /> : <Navigate to='/login' />} />
         </Route>
       </Routes>
     </>
