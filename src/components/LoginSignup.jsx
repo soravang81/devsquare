@@ -37,6 +37,7 @@ export function Authentication() {
 
   const apiClient = axios.create({
     baseURL: 'https://dev-square.onrender.com',
+    // baseURL: 'http://localhost:3001',
   });
 
   const handleSignUp = async (e) => {
