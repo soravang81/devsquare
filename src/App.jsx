@@ -55,6 +55,7 @@ function App() {
         <Route path='/forum' element={<Forum />} />
         <Route path='/search' element={<AdvancedSearch />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/login' element={<Authentication />} />
         <Route element={<ProtectedRoute fallbackPath='/home' />}>
           {/* <Route path='/' element={isAuth ? <Navigate to='/dashboard' /> : <Navigate to='/login' />} /> */}
           <Route path='/' element={isAuth ? <Navigate to='/home' /> : <Navigate to='/login' />} />
