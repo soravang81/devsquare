@@ -1,5 +1,4 @@
 import React from "react";
-import './App.css';
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
