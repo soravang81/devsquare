@@ -4,9 +4,6 @@ import mongoose from "mongoose"
 import { schema , investors , founders , data } from "./db";
 import cors from "cors"
 const startups = mongoose.model("data" , schema , "devsquare");
-// const data = mongoose.model("data" , schema , "main");
-// const founders = mongoose.model("data" ,  , "founders");
-// const investors = mongoose.model("investors" , investorsSchema , "investors");
 
 const app = express()
 app.use(express.json())
