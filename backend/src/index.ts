@@ -1,13 +1,15 @@
 import express from "express"
 import axios from  "axios"
 import mongoose from "mongoose"
-import { schema , investors , founders , data } from "./db";
+import { schema , investors , founders , data, connect } from "./db";
 import cors from "cors"
 const startups = mongoose.model("data" , schema , "devsquare");
 
 const app = express()
 app.use(express.json())
 app.use(cors())
+
+connect()
 
 app.get("/data" , async(req, res) =>{
   try{

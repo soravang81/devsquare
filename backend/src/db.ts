@@ -4,7 +4,7 @@ dotenv.config()
 
 const url = process.env.REACT_APP_DATABASE_URL || "";
 
-const connect = async () => {
+export const connect = async () => {
     try {
         await mongoose.connect(url);
         const db = mongoose.connection.db;
@@ -15,8 +15,6 @@ const connect = async () => {
         console.error("MongoDB connection error:", error);
     }
 };
-
-connect();
 
 export const schema = new mongoose.Schema({
   name: "string",

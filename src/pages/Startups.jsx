@@ -29,7 +29,7 @@ export function Startups() {
   return (
     <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
       {startups.map((startup, index) => (
-        <div key={index} className="border p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+        <div key={index} className="border p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-110 bg-white transition-transform duration-200 ease-in-out">
           {startup.image && (
             <img
               src={startup.image}
@@ -60,7 +60,6 @@ export function Startups() {
             </p>
           ) : (
           <p className="text-center">Investors: unknown</p>)}
-          {/* <p className="text-center">Investors: unknown</p>  } */}
           <p className="text-center">Founded: {(new Date(startup.founded_date)).toDateString()}</p>
           <p className="text-center">Employees: {startup.num_employees}</p>
           <p className="text-center mt-2">{startup.about}</p>
@@ -76,7 +75,7 @@ export function Startups() {
                 return (
                   <>
                   <span className="text-blue-600">|</span>
-                  <a key={i} href={link} className="text-blue-500 hover:text-blue-900">
+                  <a key={i} href={link} className="text-blue-600 hover:text-blue-900">
                     {domain}
                   </a>
                   </>

@@ -6,7 +6,7 @@ export function Dashboard() {
   const [profiles, setProfiles] = useState([]);
   const [filteredProfiles, setFilteredProfiles] = useState([]);
   const [filterOn, setFilterOn] = useState(false);
-  const [data, setData] = useState({}[{}]);
+  const [data, setData] = useState([]);
 
   // Fetch data on component mount
   useEffect(() => {
@@ -26,12 +26,13 @@ export function Dashboard() {
       }
     };
     
-    fetchData();
+    if(data.length === 0) {
+      fetchData();
+    }
   }, []);
 
-  // Update profiles when data changes
   useEffect(() => {
-    if (data.founders && data.investors) {
+    if (data && data.founders && data.investors) {
       const combinedProfiles = [...data.founders, ...data.investors].sort(
         () => 0.5 - Math.random()
       );
@@ -83,7 +84,7 @@ export function Dashboard() {
     </div>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {profilesToShow.map((profile) => (
-          <div key={profile._id} className="border p-4 rounded-lg shadow-md hover:scale-110 hover:z-10 transition-transform duration-200 hover:bg-white">
+          <div key={profile._id} className="border p-4 rounded-lg shadow-md hover:scale-110 hover:z-10 transition-transform duration-200 ease-in-out hover:bg-white">
             <img
               src={profile.profile_picture}
               alt={`${profile.name}'s profile`}
