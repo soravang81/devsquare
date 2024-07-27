@@ -1,8 +1,13 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "sonner";
+// import dotenv from "dotenv";
+// dotenv.config();
 
 export function Dashboard() {
+
+  const backendurl = import.meta.env.VITE_BACKEND_URL || ""
   const [profiles, setProfiles] = useState([]);
   const [filteredProfiles, setFilteredProfiles] = useState([]);
   const [filterOn, setFilterOn] = useState(false);
@@ -12,7 +17,7 @@ export function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const promise = axios.get("http://localhost:3000/data");
+        const promise = axios.get(`${backendurl}/data`);
         toast.promise(promise, {
           loading: 'Loading...',
           success: 'Data fetched successfully!',

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "sonner";
+// import dotenv from "dotenv";
+// dotenv.config()
+// @ts-ignore
+import.meta.env.VITE_BACKEND_URL
 
 export function Startups() {
   const [startups, setStartups] = useState([]);
@@ -8,7 +12,9 @@ export function Startups() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const promise = axios.get("http://localhost:3000/startups");
+        // @ts-ignore
+        const backendurl = import.meta.env.VITE_BACKEND_URL
+        const promise = axios.get(`${backendurl}/startups`);
         toast.promise(promise, {
           loading: 'Loading...',
           success: 'Data fetched successfully!',
