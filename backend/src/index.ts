@@ -9,6 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.listen(3000)
 connect()
 
 app.get("/data" , async(req, res) =>{
@@ -49,5 +50,3 @@ app.get("/startups" , async (req , res) =>{
 //     console.error("Error updating data!")
 //   }
 // })
-
-app.listen(3000)
